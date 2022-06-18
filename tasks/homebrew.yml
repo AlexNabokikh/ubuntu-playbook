@@ -1,0 +1,37 @@
+---
+- name: Ensure prereq packages installed.
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: true
+    state: present
+  loop:
+    - build-essential
+    - curl
+    - file
+    - git
+    - procps
+  become: true
+
+- name: Clone Homebrew repo
+  ansible.builtin.git:
+    repo: "https://github.com/Homebrew/brew"
+    dest: "/home/{{ username }}/.homebrew"
+    version: master
+  become_user: "{{ username }}"
+  become: true
+
+- name: Ensure configured Homebrew packages are installed.
+  community.general.homebrew:
+    name: "{{ item.name | default(item) }}"
+    state: present
+  loop: "{{ homebrew_packages }}"
+
+- name: Upgrade installed Homebrew packages.
+  community.general.homebrew:
+    upgrade_all: true
+
+- name: Clear homebrew cache.
+  file:
+    path: "/home/{{ username }}/.cache/Homebrew"
+    state: absent
+  become: true

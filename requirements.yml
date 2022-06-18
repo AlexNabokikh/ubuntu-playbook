@@ -1,0 +1,6 @@
+---
+roles:
+  - name: geerlingguy.dotfiles
+
+collections:
+  - name: community.general

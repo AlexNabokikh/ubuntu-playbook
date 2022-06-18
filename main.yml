@@ -1,0 +1,48 @@
+---
+- hosts: all
+
+  vars_files:
+    - default.config.yml
+
+  pre_tasks:
+    - name: Include playbook configuration.
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ["always"]
+
+  roles:
+    - role: geerlingguy.dotfiles
+      when: configure_dotfiles
+      tags: ["dotfiles"]
+
+  tasks:
+    - import_tasks: tasks/apt.yml
+      tags: ["apt"]
+
+    - import_tasks: tasks/directories.yml
+      when: create_directories
+      tags: ["directories"]
+
+    - import_tasks: tasks/extra-packages.yml
+      tags: ["extra-packages"]
+
+    - import_tasks: tasks/gpg.yml
+      when: configure_gpg
+      tags: ["gpg"]
+
+    - import_tasks: tasks/homebrew.yml
+      when: homebrew_installed
+      tags: ["homebrew"]
+
+    - import_tasks: tasks/sudoers.yml
+      when: configure_sudoers
+      tags: ["sudoers"]
+
+    - import_tasks: tasks/vundle.yml
+      when: configure_vundle
+      tags: ["vundle"]
+
+    - import_tasks: tasks/zsh.yml
+      when: configure_zsh
+      tags: ["zsh"]

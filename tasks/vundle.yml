@@ -1,0 +1,15 @@
+---
+- name: Clone a github repository.
+  ansible.builtin.git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+    clone: true
+    update: true
+
+- name: Ensure plugins set in .vimrc are installed.
+  ansible.builtin.shell:
+    cmd: vim -c "execute \"PluginInstall\" | qa"
+
+- name: Ensure plugins set in .vimrc are updated.
+  ansible.builtin.shell:
+    cmd: vim -c "execute \"PluginUpdate\" | qa"

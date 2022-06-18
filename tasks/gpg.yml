@@ -1,0 +1,13 @@
+---
+- name: Ensure gnupg hidden dir created.
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.gnupg"
+    state: directory
+    mode: "0700"
+  register: gnupg_dir
+
+- name: Ensure gpg.conf copied.
+  ansible.builtin.copy:
+    src: "files/gpg/gpg.conf"
+    dest: "{{ gnupg_dir.path }}/gpg.conf"
+    mode: "0600"

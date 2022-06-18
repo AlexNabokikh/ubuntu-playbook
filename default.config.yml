@@ -1,0 +1,50 @@
+---
+configure_gpg: false
+configure_vundle: true
+
+configure_zsh: true
+username: "{{ lookup('env', 'USER') }}"
+
+create_directories: true
+directories:
+  - $HOME/Documents
+
+configure_sudoers: true
+sudoers_custom_config: |
+  # Allow users in sudo group to use sudo with no password.
+  %sudo ALL=(ALL) NOPASSWD: ALL
+
+configure_dotfiles: true
+dotfiles_repo: https://github.com/REPLACEME/dotfiles
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_local_destination: ~/Documents/repositories/dotfiles
+dotfiles_files:
+  - .gitconfig
+  - .p10k.zsh
+  - .tmux.conf
+  - .vimrc
+  - .zshrc
+
+apt_installed_packages:
+  - build-essential
+  - curl
+  - file
+  - git
+  - htop
+  - procps
+  - tmux
+  - vim
+  - zsh
+
+homebrew_installed: true
+homebrew_packages:
+  - fzf
+  - git-delta
+  - kubernetes-cli
+  - minikube
+  - tfenv
+
+pip_executable: pip
+pip_packages:
+  - name: awscli
+    state: latest

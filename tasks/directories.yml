@@ -1,0 +1,7 @@
+---
+- name: Ensure temp and repo directories are present.
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: 0755
+  loop: "{{ directories }}"

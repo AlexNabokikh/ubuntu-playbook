@@ -1,0 +1,15 @@
+---
+- name: Ensure apt packages installed.
+  ansible.builtin.apt:
+    name: "{{ item.name | default(item) }}"
+    autoclean: true
+    autoremove: true
+    update_cache: true
+    state: latest
+  loop: "{{ apt_installed_packages }}"
+  become: true
+
+- name: Clean apt chache.
+  ansible.builtin.command: >
+    apt clean && apt autoremove && apt autoclean
+  become: true

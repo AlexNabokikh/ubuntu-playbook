@@ -1,0 +1,39 @@
+---
+- name: Install zsh.
+  ansible.builtin.apt:
+    name: zsh
+    autoclean: true
+    autoremove: true
+    update_cache: true
+    state: latest
+  become: true
+
+- name: Set zsh as default shell.
+  ansible.builtin.user:
+    name: "{{ username }}"
+    shell: /usr/bin/zsh
+  become: true
+
+- name: Ensure oh-my-zsh installed.
+  ansible.builtin.git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+    version: master
+    clone: true
+    update: true
+
+- name: Ensure Powerlevel10k installed.
+  ansible.builtin.git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
+    version: master
+    clone: true
+    update: true
+
+- name: Ensure zsh-history-substring-search installed.
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-history-substring-search
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-history-substring-search"
+    version: master
+    clone: true
+    update: true
