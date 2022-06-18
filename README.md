@@ -62,7 +62,6 @@ You can override any of the defaults configured in `default.config.yml` by creat
 
 ```yaml
 ---
----
 configure_vundle: true
 
 configure_zsh: true
