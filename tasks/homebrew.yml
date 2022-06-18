@@ -31,7 +31,7 @@
     upgrade_all: true
 
 - name: Clear homebrew cache.
-  file:
+  ansible.builtin.file:
     path: "/home/{{ username }}/.cache/Homebrew"
     state: absent
   become: true
