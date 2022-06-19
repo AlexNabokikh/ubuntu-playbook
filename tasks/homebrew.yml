@@ -37,6 +37,7 @@
   ansible.builtin.copy:
     content: "export PATH=$PATH:{{ homebrew_bin_path }}"
     dest: /etc/profile.d/brew.sh
+    mode: 0755
   become: true
   when: not brew_installed.stat.exists
 
