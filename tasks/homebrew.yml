@@ -1,4 +1,15 @@
 ---
+- name: Set homebrew_install_path.
+  ansible.builtin.set_fact:
+    homebrew_install_path: "/home/{{ username }}/.homebrew"
+    homebrew_bin_path: "/home/{{ username }}/.homebrew/bin"
+
+- name: Check if homebrew is already installed.
+  ansible.builtin.stat:
+    path: "{{ homebrew_install_path }}"
+  register: brew_installed
+  check_mode: false
+
 - name: Ensure prereq packages installed.
   ansible.builtin.apt:
     name: "{{ item }}"
@@ -11,24 +22,35 @@
     - git
     - procps
   become: true
+  when: not brew_installed.stat.exists
 
-- name: Clone Homebrew repo
+- name: Clone Homebrew repo.
   ansible.builtin.git:
     repo: "https://github.com/Homebrew/brew"
-    dest: "/home/{{ username }}/.homebrew"
+    dest: "{{ homebrew_install_path }}"
     version: master
   become_user: "{{ username }}"
   become: true
+  when: not brew_installed.stat.exists
+
+- name: Ensure system-wide $PATH set.
+  ansible.builtin.copy:
+    content: "export PATH=$PATH:{{ homebrew_bin_path }}"
+    dest: /etc/profile.d/brew.sh
+  become: true
+  when: not brew_installed.stat.exists
 
 - name: Ensure configured Homebrew packages are installed.
   community.general.homebrew:
     name: "{{ item.name | default(item) }}"
     state: present
+    path: "{{ homebrew_bin_path }}"
   loop: "{{ homebrew_packages }}"
 
 - name: Upgrade installed Homebrew packages.
   community.general.homebrew:
     upgrade_all: true
+    path: "{{ homebrew_bin_path }}"
 
 - name: Clear homebrew cache.
   ansible.builtin.file:
