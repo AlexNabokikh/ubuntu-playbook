@@ -62,10 +62,11 @@ You can override any of the defaults configured in `default.config.yml` by creat
 
 ```yaml
 ---
+configure_gpg: false
 configure_vundle: true
 
 configure_zsh: true
-username: myuser
+username: "{{ lookup('env', 'USER') }}"
 
 create_directories: true
 directories:
@@ -90,18 +91,26 @@ dotfiles_files:
 apt_installed_packages:
   - build-essential
   - curl
+  - file
   - git
   - htop
+  - procps
   - tmux
   - vim
   - zsh
 
-brew_formulae:
+homebrew_installed: true
+homebrew_packages:
   - fzf
   - git-delta
   - kubernetes-cli
   - minikube
   - tfenv
+
+pip_executable: pip
+pip_packages:
+  - name: awscli
+    state: latest
 ```
 
 ## Included Applications / Configuration (Default)
