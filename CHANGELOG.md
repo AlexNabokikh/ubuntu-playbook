@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.1.1](https://github.com/AlexNabokikh/wsl-playbook/compare/v1.1.0...v1.1.1) (2022-06-23)
+
+
+### Bug Fixes
+
+* **README.md:** changed the dotfiles description wording ([030a48f](https://github.com/AlexNabokikh/wsl-playbook/commit/030a48ffed99a8590653750ce2c76b241bc49271))
+
 ## [1.1.0](https://github.com/AlexNabokikh/wsl-playbook/compare/v1.0.0...v1.1.0) (2022-06-19)
 
 
