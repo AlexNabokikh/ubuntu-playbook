@@ -22,7 +22,7 @@ This playbook helps to configure Ubuntu WSL2 machine for software development qu
   * Ensure software and packages selected by the user are installed via [Homebrew](https://github.com/Homebrew/brew).
   * Ensure PIP (Python) selected packages selected by the user are installed.
 * **Dotfiles**
-  * Installs a set of dotfiles from a given Git repository.
+  * Ensures a set of dotfiles are installed from a given Git repo.
 * **System Settings**
   * **directories**
     * Ensures custom user directories created.
