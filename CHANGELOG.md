@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/AlexNabokikh/wsl-playbook/compare/v1.1.2...v2.0.0) (2022-08-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* replaced vundle with vim-plug
+
+### Features
+
+* replaced vundle with vim-plug ([5138574](https://github.com/AlexNabokikh/wsl-playbook/commit/5138574d9df10bca9ac974c11ad8943efccb787a))
+
 ### [1.1.2](https://github.com/AlexNabokikh/wsl-playbook/compare/v1.1.1...v1.1.2) (2022-08-23)
 
 
