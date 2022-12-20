@@ -14,7 +14,7 @@
     shell: /usr/bin/zsh
   become: true
 
-- name: Ensure oh-my-zsh installed.
+- name: Install oh-my-zsh.
   ansible.builtin.git:
     repo: https://github.com/robbyrussell/oh-my-zsh
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
@@ -22,7 +22,7 @@
     clone: true
     update: true
 
-- name: Ensure Powerlevel10k installed.
+- name: Install Powerlevel10k.
   ansible.builtin.git:
     repo: https://github.com/romkatv/powerlevel10k.git
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/powerlevel10k"
@@ -30,7 +30,7 @@
     clone: true
     update: true
 
-- name: Ensure zsh-history-substring-search installed.
+- name: Install zsh-history-substring-search.
   ansible.builtin.git:
     repo: https://github.com/zsh-users/zsh-history-substring-search
     dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-history-substring-search"

@@ -1,5 +1,5 @@
 ---
-- name: Ensure apt packages installed.
+- name: Install apt packages.
   ansible.builtin.apt:
     name: "{{ item.name | default(item) }}"
     autoclean: true
