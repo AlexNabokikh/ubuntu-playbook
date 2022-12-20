@@ -1,0 +1,49 @@
+---
+- name: Create asdf directory.
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.asdf"
+    state: directory
+    mode: 0755
+  register: asdf_dir
+
+- name: Install asdf plugins
+  ansible.builtin.command: >-
+    asdf plugin-add {{ item.name }} {{ item.repository | default() }}
+  args:
+    creates: "{{ asdf_dir.path }}/plugins/{{ item.name }}"
+    chdir: "{{ ansible_env.HOME }}"
+  with_items: "{{ asdf_plugins }}"
+
+- name: Install asdf packages
+  ansible.builtin.command: >-
+    asdf install {{ item.0.name }} {{ item.1 }}
+  args:
+    creates: "{{ asdf_dir.path }}/installs/{{ item.0.name }}/{{ item.1 }}"
+    chdir: "{{ ansible_env.HOME }}/.asdf"
+  with_subelements:
+    - "{{ asdf_plugins }}"
+    - versions
+    - flags:
+      skip_missing: true
+
+- name: Get current asdf package versions
+  ansible.builtin.command: >-
+    set -o pipefail &&
+    asdf current {{ item.name }} |
+    grep -o '{{ item.global }}'
+  args:
+    chdir: "{{ ansible_env.HOME }}/.asdf"
+  register: asdf_plugins_versions
+  with_items: "{{ asdf_plugins }}"
+  when: item.versions is defined
+  changed_when: false
+  failed_when: false
+
+- name: Set global asdf package versions
+  ansible.builtin.command: >-
+    asdf global {{ item.item.name }}
+    {{ item.item.global | default(item.item.versions[0]) }}
+  args:
+    chdir: "{{ ansible_env.HOME }}/.asdf"
+  when: item.skipped is not defined and item.rc != 0
+  with_items: "{{ asdf_plugins_versions.results }}"
