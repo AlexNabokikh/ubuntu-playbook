@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0](https://github.com/AlexNabokikh/wsl-playbook/compare/v2.0.0...v2.1.0) (2022-12-20)
+
+
+### Features
+
+* change task names wording ([a70a9c8](https://github.com/AlexNabokikh/wsl-playbook/commit/a70a9c85f0c31700f7091b3e582e47ac1f066c8a))
+* **ci:** semver deps update ([97ee625](https://github.com/AlexNabokikh/wsl-playbook/commit/97ee62509c121b0f544ae64b612bb1754b09a762))
+* **task:** added asdf tool version manager task ([c2ef897](https://github.com/AlexNabokikh/wsl-playbook/commit/c2ef89780fe54746458157ced276b24244dceb70))
+
 ## [2.0.0](https://github.com/AlexNabokikh/wsl-playbook/compare/v1.1.2...v2.0.0) (2022-08-24)
 
 
