@@ -10,7 +10,7 @@
   register: brew_installed
   check_mode: false
 
-- name: Ensure prereq packages installed.
+- name: Install prereq packages.
   ansible.builtin.apt:
     name: "{{ item }}"
     update_cache: true
@@ -41,7 +41,7 @@
   become: true
   when: not brew_installed.stat.exists
 
-- name: Ensure configured Homebrew packages are installed.
+- name: Install Homebrew packages.
   community.general.homebrew:
     name: "{{ item.name | default(item) }}"
     state: present

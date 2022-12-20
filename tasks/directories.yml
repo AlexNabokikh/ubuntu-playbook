@@ -1,5 +1,5 @@
 ---
-- name: Ensure temp and repo directories are present.
+- name: Create user directories.
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
