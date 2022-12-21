@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.0](https://github.com/AlexNabokikh/wsl-playbook/compare/v2.1.0...v2.2.0) (2022-12-21)
+
+
+### Features
+
+* **asdf:** getting rid of asdf ([f31172d](https://github.com/AlexNabokikh/wsl-playbook/commit/f31172dbef28f4af38b10a78032ed03cac4615bd))
+
 ## [2.1.0](https://github.com/AlexNabokikh/wsl-playbook/compare/v2.0.0...v2.1.0) (2022-12-20)
 
 
