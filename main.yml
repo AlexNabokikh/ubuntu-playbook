@@ -17,9 +17,6 @@
       tags: ["dotfiles"]
 
   tasks:
-    - import_tasks: tasks/asdf.yml
-      tags: ["asdf"]
-
     - import_tasks: tasks/apt.yml
       tags: ["apt"]
 
