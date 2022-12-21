@@ -50,7 +50,7 @@ This playbook helps to configure Ubuntu WSL2 machine for software development qu
 
 ### Running a specific set of tagged tasks
 
-You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook` 's `--tags` flag. The tags available are `dotfiles` , `homebrew` , `sudoers` , `vundle` , `directories` and `apt` .
+You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook` 's `--tags` flag. The tags available are `dotfiles` , `homebrew` , `sudoers` , `vim` , `directories` and `apt`.
 
 ```sh
 ansible-playbook main.yml -K --tags "dotfiles, apt"
