@@ -1,4 +1,5 @@
 ---
+- name: WSL Playbook
 - hosts: all
 
   vars_files:
@@ -6,7 +7,7 @@
 
   pre_tasks:
     - name: Include playbook configuration.
-      include_vars: "{{ item }}"
+      ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
         - "{{ playbook_dir }}/config.yml"
       tags: ["always"]
@@ -20,29 +21,50 @@
     - import_tasks: tasks/apt.yml
       tags: ["apt"]
 
-    - import_tasks: tasks/directories.yml
+    - name: Include directories task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/directories.yml
       when: create_directories
       tags: ["directories"]
 
-    - import_tasks: tasks/extra-packages.yml
+    - name: Include extra-packages task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/extra-packages.yml
+      when: install_extra_packages
       tags: ["extra-packages"]
 
-    - import_tasks: tasks/gpg.yml
+    - name: Include gpg task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/gpg.yml
       when: configure_gpg
       tags: ["gpg"]
 
-    - import_tasks: tasks/homebrew.yml
+    - name: Include homebrew task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/homebrew.yml
       when: homebrew_installed
       tags: ["homebrew"]
 
-    - import_tasks: tasks/sudoers.yml
+    - name: Include sudoers task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/sudoers.yml
       when: configure_sudoers
       tags: ["sudoers"]
 
-    - import_tasks: tasks/vim-plug.yml
+    - name: Include vim-plug task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/vim-plug.yml
       when: install_vim_plug
       tags: ["vim"]
 
-    - import_tasks: tasks/zsh.yml
+    - name: Include zsh task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/zsh.yml
       when: configure_zsh
       tags: ["zsh"]
+
+    - name: Include tmux task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/tmux.yml
+      when: configure_tmux
+      tags: ["tmux"]

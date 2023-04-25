@@ -1,0 +1,14 @@
+---
+- name: Install tmux tpm.
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: $HOME/.tmux/plugins/tpm
+    version: master
+    clone: true
+    update: true
+
+- name: Install plugins.
+  ansible.builtin.command: ~/.tmux/plugins/tpm/bin/install_plugins
+
+- name: Update plugins.
+  ansible.builtin.command: ~/.tmux/plugins/tpm/bin/update_plugins all

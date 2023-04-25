@@ -1,6 +1,7 @@
 ---
 configure_gpg: false
-configure_vundle: true
+install_vim_plug: false
+configure_tmux: false
 
 configure_zsh: true
 username: "{{ lookup('env', 'USER') }}"
