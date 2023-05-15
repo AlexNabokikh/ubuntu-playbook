@@ -83,7 +83,6 @@ installed_nerdfonts:
   - Meslo
 
 apt_packages:
-  - tmux
   - zsh
 
 install_snap: true
@@ -91,6 +90,7 @@ snap_packages:
   - name: nvim
     classic: true
   - name: tmux
+    classic: true
 
 install_homebrew: true
 homebrew_packages:
