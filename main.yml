@@ -61,3 +61,9 @@
         file: tasks/sudoers.yml
       when: configure_sudoers
       tags: ["sudoers"]
+
+    - name: Include zsh task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/zsh.yml
+      when: configure_zsh
+      tags: ["zsh"]

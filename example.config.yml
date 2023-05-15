@@ -46,3 +46,8 @@ pip_packages:
 npm_packages:
   - name: neovim
     state: latest
+
+configure_zsh: true
+zsh_plugins:
+  - zsh-history-substring-search
+  - zsh-syntax-highlighting

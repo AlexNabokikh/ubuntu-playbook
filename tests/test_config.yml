@@ -40,3 +40,7 @@ pip_packages:
 npm_packages:
   - name: neovim
     state: latest
+
+configure_zsh: true
+zsh_plugins:
+  - zsh-syntax-highlighting
