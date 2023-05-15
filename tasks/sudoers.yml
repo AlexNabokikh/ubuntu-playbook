@@ -1,8 +1,8 @@
 ---
 - name: Register path to sed.
   ansible.builtin.command: which sed
-  register: sed_which_result
   changed_when: false
+  register: sed_which_result
   when: sed_path is undefined
 
 - name: Define sed_path variable.
@@ -11,9 +11,9 @@
   when: sed_path is undefined
 
 - name: Copy sudoers configuration into place.
+  become: true
   ansible.builtin.copy:
     content: "{{ sudoers_custom_config }}"
     dest: /etc/sudoers.d/custom
     mode: 0440
     validate: "visudo -cf %s"
-  become: true

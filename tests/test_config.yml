@@ -16,10 +16,6 @@ dotfiles_repo_accept_hostkey: true
 dotfiles_repo_local_destination: ~/Documents/repositories/dotfiles
 dotfiles_files:
   - .gitconfig
-  - .p10k.zsh
-  - .tmux.conf
-  - .vimrc
-  - .zshrc
 
 install_fonts: true
 installed_nerdfonts:
@@ -31,8 +27,6 @@ apt_packages:
 
 install_snap: true
 snap_packages:
-  - name: nvim
-    classic: true
   - name: tmux
     classic: true
 

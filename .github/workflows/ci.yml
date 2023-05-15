@@ -1,0 +1,58 @@
+---
+name: CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  lint:
+    name: ansible and yaml lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install test dependencies.
+        run: pip3 install yamllint ansible-lint
+
+      - name: Lint code.
+        run: |
+          yamllint .
+          ansible-lint -x 403
+
+  tests:
+    name: Integration test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install test dependencies.
+        run: |
+          sudo pip3 install --upgrade pip
+          sudo pip3 install ansible
+
+      - name: Set up test environment
+        run: |
+          cp tests/ansible.cfg ./ansible.cfg
+          cp tests/inventory ./inventory
+          cp tests/test_config.yml ./config.yml
+          ansible-galaxy install -r requirements.yml
+
+      - name: Test the playbook's syntax
+        run: ansible-playbook main.yml --syntax-check
+
+      - name: Test the playbook.
+        run: ansible-playbook main.yml

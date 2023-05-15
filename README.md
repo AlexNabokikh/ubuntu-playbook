@@ -1,6 +1,7 @@
 # Ubuntu Ansible Playbook
 
-![badge-gh-actions]
+![badge-gh-tests]
+![badge-gh-release]
 ![badge-license]
 
 This playbook helps to configure Ubuntu machines for software development quickly.
@@ -114,5 +115,6 @@ This software is available under the following licenses:
 
 - **[Apache 2.0](https://github.com/AlexNabokikh/mac-playbook/blob/master/LICENSE)**
 
-[badge-gh-actions]: https://github.com/AlexNabokikh/ubuntu-playbook/actions/workflows/release.yaml/badge.svg
-[badge-license]: https://img.shields.io/badge/License-MIT-informational
+[badge-gh-tests]: https://github.com/AlexNabokikh/ubuntu-playbook/actions/workflows/ci.yml/badge.svg
+[badge-gh-release]: https://github.com/AlexNabokikh/ubuntu-playbook/actions/workflows/release.yml/badge.svg
+[badge-license]: https://img.shields.io/badge/License-Apache%202.0-informational
