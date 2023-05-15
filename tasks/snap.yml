@@ -1,4 +1,18 @@
 ---
+- name: Check if Snapd package manager is installed
+  become: true
+  ansible.builtin.stat:
+    path: /usr/bin/snap
+  register: snapd_installed
+  changed_when: false
+
+- name: Install Snapd package manager via apt
+  become: true
+  ansible.builtin.apt:
+    name: snapd
+    state: present
+  when: not snapd_installed.stat.exists
+
 - name: Install Snap packages.
   community.general.snap:
     name: "{{ item.name | default(item) }}"
