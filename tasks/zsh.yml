@@ -3,6 +3,7 @@
   become: true
   ansible.builtin.apt:
     name: zsh
+    state: latest
 
 - name: Set OMZ install path.
   ansible.builtin.set_fact:
