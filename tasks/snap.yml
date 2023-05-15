@@ -3,8 +3,8 @@
   become: true
   ansible.builtin.stat:
     path: /usr/bin/snap
-  register: snapd_installed
   changed_when: false
+  register: snapd_installed
 
 - name: Install Snapd package manager via apt
   become: true
@@ -14,10 +14,10 @@
   when: not snapd_installed.stat.exists
 
 - name: Install Snap packages.
+  become: true
   community.general.snap:
     name: "{{ item.name | default(item) }}"
     classic: "{{ item.classic | default(omit) }}"
     state: "{{ item.state | default('present') }}"
   loop: "{{ snap_packages }}"
-  become: true
   when: snap_packages is defined

@@ -1,5 +1,6 @@
 ---
 - name: Install global NPM packages.
+  become: true
   community.general.npm:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
@@ -10,9 +11,9 @@
   loop_control:
     label: "{{ item.name }}"
   when: npm_packages is defined
-  become: true
 
 - name: Install global Pip packages.
+  become: true
   ansible.builtin.pip:
     name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
@@ -21,5 +22,4 @@
   loop: "{{ pip_packages }}"
   loop_control:
     label: "{{ item.name }}"
-  become: true
   when: pip_packages is defined

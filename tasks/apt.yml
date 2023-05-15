@@ -1,5 +1,6 @@
 ---
 - name: Install apt packages.
+  become: true
   ansible.builtin.apt:
     name: "{{ item.name | default(item) }}"
     autoclean: true
@@ -7,12 +8,11 @@
     update_cache: true
     state: latest
   loop: "{{ apt_packages }}"
-  when: apt_packages is defined
-  become: true
   register: install_result
+  when: apt_packages is defined
 
 - name: Clean apt cache.
+  become: true
   ansible.builtin.command: >
     apt clean && apt autoremove && apt autoclean
   when: apt_packages is defined and not install_result.skipped
-  become: true
