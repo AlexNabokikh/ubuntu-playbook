@@ -1,0 +1,25 @@
+---
+- name: Install global NPM packages.
+  community.general.npm:
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    global: true
+    executable: "{{ item.executable | default(omit) }}"
+  loop: "{{ npm_packages }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: npm_packages is defined
+  become: true
+
+- name: Install global Pip packages.
+  ansible.builtin.pip:
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    version: "{{ item.version | default(omit) }}"
+    executable: "{{ item.executable | default('pip3') }}"
+  loop: "{{ pip_packages }}"
+  loop_control:
+    label: "{{ item.name }}"
+  become: true
+  when: pip_packages is defined
