@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.1.0...v1.1.1) (2023-05-15)
+
+
+### Bug Fixes
+
+* removed package installation overlaps ([77c3b75](https://github.com/AlexNabokikh/ubuntu-playbook/commit/77c3b756dc3d4a7f4bfe215d61fb06bc52479a85))
+
 ## [1.1.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.0.0...v1.1.0) (2023-05-15)
 
 
