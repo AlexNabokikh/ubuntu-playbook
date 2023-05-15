@@ -28,6 +28,7 @@ apt_packages:
 install_snap: true
 snap_packages:
   - name: tmux
+    classic: true
 
 install_homebrew: true
 homebrew_packages:
