@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.1.1...v1.2.0) (2023-05-16)
+
+
+### Features
+
+* **tmux:** added tmux with tpm play ([3bdfdda](https://github.com/AlexNabokikh/ubuntu-playbook/commit/3bdfddaeb856c1a346ce697d6a7ca21677f04d6a))
+* **zsh:** added zsh installation and configuration play ([5295857](https://github.com/AlexNabokikh/ubuntu-playbook/commit/529585715c6af34214092e1d85e396dce37ca1cf))
+
+
+### Bug Fixes
+
+* **snap:** removed redundant installation check ([7215f2d](https://github.com/AlexNabokikh/ubuntu-playbook/commit/7215f2dbb877100e68401a74e1445aa19fb9e8e0))
+* **tmux:** added missed document start ([d4db87c](https://github.com/AlexNabokikh/ubuntu-playbook/commit/d4db87cb4010bd0087bb0ad233bcb563eab8f57f))
+
 ## [1.1.1](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.1.0...v1.1.1) (2023-05-15)
 
 
