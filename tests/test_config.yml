@@ -22,12 +22,11 @@ installed_nerdfonts:
   - Meslo
 
 apt_packages:
-  - zsh
+  - fzf
 
 install_snap: true
 snap_packages:
-  - name: tmux
-    classic: true
+  - name: hello-world
 
 install_homebrew: true
 homebrew_packages:
@@ -40,3 +39,10 @@ pip_packages:
 npm_packages:
   - name: neovim
     state: latest
+
+configure_zsh: true
+zsh_plugins:
+  - zsh-syntax-highlighting
+
+configure_tmux: true
+tmux_dir: $HOME/.tmux

@@ -61,3 +61,15 @@
         file: tasks/sudoers.yml
       when: configure_sudoers
       tags: ["sudoers"]
+
+    - name: Include tmux task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/tmux.yml
+      when: configure_tmux
+      tags: ["tmux"]
+
+    - name: Include zsh task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/zsh.yml
+      when: configure_zsh
+      tags: ["zsh"]

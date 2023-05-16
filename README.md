@@ -30,6 +30,10 @@ This playbook helps to configure Ubuntu machines for software development quickl
     - Apply custom user sudoers config.
   - **fonts**
     - Download and install Nerd Fonts.
+  - **ZSH**
+    - Install and configure **ZSH** and **Oh-My-ZSH**
+  - **TMUX**
+    - Install and configure **TMUX** and **TPM** (Plugin manager)
 
 ## Installation
 
@@ -83,13 +87,11 @@ installed_nerdfonts:
   - Meslo
 
 apt_packages:
-  - zsh
+  - fzf
 
 install_snap: true
 snap_packages:
   - name: nvim
-    classic: true
-  - name: tmux
     classic: true
 
 install_homebrew: true
@@ -103,6 +105,13 @@ pip_packages:
 npm_packages:
   - name: neovim
     state: latest
+
+configure_zsh: true
+zsh_plugins:
+  - zsh-syntax-highlighting
+
+configure_tmux: true
+tmux_dir: $HOME/.tmux
 ```
 
 ## Author
