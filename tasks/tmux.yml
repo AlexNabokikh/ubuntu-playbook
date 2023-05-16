@@ -1,3 +1,4 @@
+---
 - name: Ensure tmux installed
   become: true
   ansible.builtin.apt:
