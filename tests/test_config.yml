@@ -22,12 +22,11 @@ installed_nerdfonts:
   - Meslo
 
 apt_packages:
-  - zsh
+  - fzf
 
 install_snap: true
 snap_packages:
-  - name: tmux
-    classic: true
+  - name: hello-world
 
 install_homebrew: true
 homebrew_packages:
