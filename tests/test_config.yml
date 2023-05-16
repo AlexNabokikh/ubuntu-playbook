@@ -44,3 +44,6 @@ npm_packages:
 configure_zsh: true
 zsh_plugins:
   - zsh-syntax-highlighting
+
+configure_tmux: true
+tmux_dir: $HOME/.tmux

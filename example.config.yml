@@ -51,3 +51,6 @@ configure_zsh: true
 zsh_plugins:
   - zsh-history-substring-search
   - zsh-syntax-highlighting
+
+configure_tmux: true
+tmux_dir: $HOME/.tmux

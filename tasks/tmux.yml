@@ -1,0 +1,23 @@
+- name: Ensure tmux installed
+  become: true
+  ansible.builtin.apt:
+    name: tmux
+    state: latest
+
+- name: Install TPM (Tmux Plugin Manager)
+  ansible.builtin.git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: "{{ tmux_dir }}/plugins/tpm"
+    clone: true
+    update: true
+
+- name: Refresh tmux plugins
+  ansible.builtin.shell: |
+    {{ tmux_dir }}/plugins/tpm/bin/install_plugins
+    {{ tmux_dir }}/plugins/tpm/bin/update_plugins all
+  environment:
+    TMUX_PLUGIN_MANAGER_PATH: "{{ tmux_dir }}/plugins"
+  register: tmux_plugin_result
+  changed_when: >
+    "Updating all plugins!" in tmux_plugin_result.stdout and
+    not ("Already installed" in tmux_plugin_result.stdout or "Already up to date" in tmux_plugin_result.stdout)
