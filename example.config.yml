@@ -33,6 +33,10 @@ snap_packages:
   - name: nvim
     classic: true
 
+install_flatpak: true
+flatpak_packages:
+  - name: Steam
+
 install_homebrew: true
 homebrew_packages:
   - name: tfenv

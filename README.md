@@ -18,7 +18,8 @@ This playbook helps to configure Ubuntu machines for software development quickl
 > **NOTE:** The Playbook is fully configurable. You can skip or reconfigure any task by [Overriding Defaults](#overriding-defaults).
 
 - **Software**
-  - Install **APT, Snap, Homebrew, PIP or NPM** packages selected by the user.
+  - Install **APT, Snap, Flatpak, Homebrew** packages.
+  - Install extra **PIP** or **NPM** packages.
 - **Dotfiles**
   - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory.
 - **System Settings**
@@ -95,6 +96,10 @@ snap_packages:
   - name: nvim
     classic: true
 
+install_flatpak: true
+flatpak_packages:
+  - name: Steam
+
 install_homebrew: true
 homebrew_packages:
   - name: tfenv
@@ -108,8 +113,14 @@ npm_packages:
     state: latest
 
 configure_zsh: true
+# Plugin names have to be in the format github_user/plugin_name
 zsh_plugins:
-  - zsh-syntax-highlighting
+  - zsh-users/zsh-syntax-highlighting
+  - zsh-users/zsh-history-substring-search
+
+# Theme names have to be in the format github_user/theme_name
+zsh_themes:
+  - romkatv/powerlevel10k
 
 configure_tmux: true
 tmux_dir: $HOME/.tmux
