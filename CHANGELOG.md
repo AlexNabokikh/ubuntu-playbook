@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.0.0...v2.1.0) (2023-05-17)
+
+
+### Features
+
+* **flatpak:** added flatpak packages installation task ([8419402](https://github.com/AlexNabokikh/ubuntu-playbook/commit/8419402d2963856447d704dc1b643e062998bdf8))
+* **snap:** set classic confinement as default ([df5a343](https://github.com/AlexNabokikh/ubuntu-playbook/commit/df5a3431c289873915fb70f0ec27967180b62eba))
+
 ## [2.0.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.2.0...v2.0.0) (2023-05-17)
 
 
