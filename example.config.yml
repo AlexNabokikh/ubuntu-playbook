@@ -31,7 +31,10 @@ apt_packages:
 install_snap: true
 snap_packages:
   - name: nvim
-    classic: true
+
+install_flatpak: true
+flatpak_packages:
+  - name: app/org.mozilla.firefox/x86_64/stable
 
 install_homebrew: true
 homebrew_packages:

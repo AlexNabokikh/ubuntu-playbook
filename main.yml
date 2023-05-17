@@ -33,6 +33,12 @@
         file: tasks/extra-packages.yml
       tags: ["extra-packages"]
 
+    - name: Include flatpak packages task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/flatpak.yml
+      tags: ["flatpak"]
+      when: install_flatpak
+
     - name: Include fonts task configuration.
       ansible.builtin.import_tasks:
         file: tasks/fonts.yml
