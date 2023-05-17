@@ -46,9 +46,14 @@ npm_packages:
     state: latest
 
 configure_zsh: true
+# Plugin names have to be in the format github_user/plugin_name
 zsh_plugins:
-  - zsh-history-substring-search
-  - zsh-syntax-highlighting
+  - zsh-users/zsh-syntax-highlighting
+  - zsh-users/zsh-history-substring-search
+
+# Theme names have to be in the format github_user/theme_name
+zsh_themes:
+  - romkatv/powerlevel10k
 
 configure_tmux: true
 tmux_dir: $HOME/.tmux

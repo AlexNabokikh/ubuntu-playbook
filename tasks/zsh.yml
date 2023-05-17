@@ -18,12 +18,21 @@
 
 - name: Install ZSH Plugins
   ansible.builtin.git:
-    repo: "https://github.com/zsh-users/{{ item }}.git"
-    dest: "{{ omz_path }}/custom/plugins/{{ item }}"
+    repo: "https://github.com/{{ item }}.git"
+    dest: "{{ omz_path }}/custom/plugins/{{ item.split('/')[1:] | join('/') }}"
     clone: true
     update: true
   with_items: "{{ zsh_plugins }}"
   when: zsh_plugins is defined
+
+- name: Install ZSH Themes
+  ansible.builtin.git:
+    repo: "https://github.com/{{ item }}.git"
+    dest: "{{ omz_path }}/custom/themes/{{ item.split('/')[1:] | join('/') }}"
+    clone: true
+    update: true
+  with_items: "{{ zsh_themes }}"
+  when: zsh_themes is defined
 
 - name: Set ZSH as the default shell
   become: true
