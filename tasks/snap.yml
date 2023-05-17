@@ -1,5 +1,5 @@
 ---
-- name: Install Snapd package manager via apt
+- name: Ensure Snapd installed.
   become: true
   ansible.builtin.apt:
     name: snapd

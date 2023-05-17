@@ -35,7 +35,7 @@ snap_packages:
 
 install_flatpak: true
 flatpak_packages:
-  - name: Steam
+  - name: app/org.mozilla.firefox/x86_64/stable
 
 install_homebrew: true
 homebrew_packages:

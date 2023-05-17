@@ -1,5 +1,5 @@
 ---
-- name: Ensure ZSH installed
+- name: Ensure ZSH installed.
   become: true
   ansible.builtin.apt:
     name: zsh
@@ -9,14 +9,14 @@
   ansible.builtin.set_fact:
     omz_path: "{{ omz_install_path | default('$HOME/.oh-my-zsh') }}"
 
-- name: Install Oh My ZSH
+- name: Install Oh My ZSH.
   ansible.builtin.git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git
     dest: "{{ omz_path }}"
     clone: true
     update: true
 
-- name: Install ZSH Plugins
+- name: Install ZSH Plugins.
   ansible.builtin.git:
     repo: "https://github.com/{{ item }}.git"
     dest: "{{ omz_path }}/custom/plugins/{{ item.split('/')[1:] | join('/') }}"
@@ -25,7 +25,7 @@
   with_items: "{{ zsh_plugins }}"
   when: zsh_plugins is defined
 
-- name: Install ZSH Themes
+- name: Install ZSH Themes.
   ansible.builtin.git:
     repo: "https://github.com/{{ item }}.git"
     dest: "{{ omz_path }}/custom/themes/{{ item.split('/')[1:] | join('/') }}"
@@ -34,7 +34,7 @@
   with_items: "{{ zsh_themes }}"
   when: zsh_themes is defined
 
-- name: Set ZSH as the default shell
+- name: Set ZSH as the default shell.
   become: true
   ansible.builtin.user:
     name: "{{ username }}"

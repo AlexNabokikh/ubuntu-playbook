@@ -1,5 +1,5 @@
 ---
-- name: Ensure tmux installed
+- name: Ensure tmux installed.
   become: true
   ansible.builtin.apt:
     name: tmux
@@ -12,7 +12,7 @@
     clone: true
     update: true
 
-- name: Refresh tmux plugins
+- name: Refresh tmux plugins.
   ansible.builtin.shell: |
     {{ tmux_dir }}/plugins/tpm/bin/install_plugins
     {{ tmux_dir }}/plugins/tpm/bin/update_plugins all

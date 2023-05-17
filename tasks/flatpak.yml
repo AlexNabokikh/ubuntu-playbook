@@ -1,18 +1,18 @@
 ---
-- name: Ensure flatpak installed
+- name: Ensure flatpak installed.
   become: true
   ansible.builtin.apt:
     name: flatpak
     state: latest
 
-- name: Ensure flatpak remotes are installed
+- name: Ensure flatpak remotes are installed.
   community.general.flatpak_remote:
     name: unfiltered-flathub
     state: present
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
 
-- name: Install flatpak packages
+- name: Install flatpak packages.
   become: "{{ 'true' if item.method is defined and item.method == 'system' else 'false' }}"
   community.general.flatpak:
     name: "{{ item.name }}"
