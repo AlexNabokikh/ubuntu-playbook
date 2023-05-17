@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.2.0...v2.0.0) (2023-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **zsh:** Plugins format changed, check example.config.yml for details
+
+### Features
+
+* **zsh:** added omz custom themes installation task ([22d0dde](https://github.com/AlexNabokikh/ubuntu-playbook/commit/22d0dde82e1174ccfa103a011693647fd4dc9374))
+
 ## [1.2.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v1.1.1...v1.2.0) (2023-05-16)
 
 
