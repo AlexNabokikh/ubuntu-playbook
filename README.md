@@ -32,6 +32,7 @@ This playbook helps to configure Ubuntu machines for software development quickl
     - Download and install Nerd Fonts.
   - **ZSH**
     - Install and configure **ZSH** and **Oh-My-ZSH**
+    - Install custom **OMZ** plugins and themes.
   - **TMUX**
     - Install and configure **TMUX** and **TPM** (Plugin manager)
 
