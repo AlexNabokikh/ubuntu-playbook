@@ -94,7 +94,6 @@ apt_packages:
 install_snap: true
 snap_packages:
   - name: nvim
-    classic: true
 
 install_flatpak: true
 flatpak_packages:
