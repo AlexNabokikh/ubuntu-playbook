@@ -21,6 +21,8 @@ install_fonts: true
 installed_nerdfonts:
   - Meslo
 
+configure_gnome: false
+
 apt_packages:
   - fzf
 

@@ -1,6 +1,7 @@
 ---
 roles:
   - name: geerlingguy.dotfiles
+  - name: petermosmans.customize-gnome
 
 collections:
   - name: community.general
