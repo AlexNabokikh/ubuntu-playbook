@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.2.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.1.0...v2.2.0) (2023-05-18)
+
+
+### Features
+
+* **gnome:** added gnome customization role ([73d9b1e](https://github.com/AlexNabokikh/ubuntu-playbook/commit/73d9b1ead1a9ace1c95a8951318db19d6ffdd1d5))
+
 ## [2.1.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.0.0...v2.1.0) (2023-05-17)
 
 
