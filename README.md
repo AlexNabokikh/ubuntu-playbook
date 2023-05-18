@@ -1,5 +1,7 @@
 # Ubuntu Ansible Playbook
 
+![Logo](files/logo.png)
+
 ![badge-gh-tests]
 ![badge-gh-release]
 ![badge-license]
