@@ -16,6 +16,9 @@
     - role: geerlingguy.dotfiles
       when: configure_dotfiles
       tags: ["dotfiles"]
+    - role: petermosmans.customize-gnome
+      when: configure_gnome
+      tags: ["gnome"]
 
   tasks:
     - name: Include apt packages task configuration.

@@ -18,10 +18,10 @@ This playbook helps to configure Ubuntu machines for software development quickl
 > **NOTE:** The Playbook is fully configurable. You can skip or reconfigure any task by [Overriding Defaults](#overriding-defaults).
 
 - **Software**
-  - Install **APT, Snap, Flatpak, Homebrew** packages.
+  - Install **APT, Snap, Flatpak or Homebrew** packages.
   - Install extra **PIP** or **NPM** packages.
 - **Dotfiles**
-  - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory.
+  - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory. ([Role](https://github.com/geerlingguy/ansible-role-dotfiles))
 - **System Settings**
   - **hostname**
     - Create a user-defined hostname.
@@ -36,6 +36,8 @@ This playbook helps to configure Ubuntu machines for software development quickl
     - Install custom **OMZ** plugins and themes.
   - **TMUX**
     - Install and configure **TMUX** and **TPM** (Plugin manager)
+  - **GNOME**
+    - Customizes the GNOME desktop ([Role](https://github.com/PeterMosmans/ansible-role-customize-gnome/))
 
 ## Installation
 
@@ -58,72 +60,7 @@ ansible-playbook main.yml -K --tags "dotfiles, apt"
 
 ## Overriding Defaults
 
-You can override any of the defaults configured in `example.config.yml` by creating a `config.yml` file and setting the overrides in that file. For example, you can customize the installed packages and enable/disable specific tasks with something like:
-
-```yaml
----
-username: "{{ lookup('env', 'USER') }}"
-
-create_directories: true
-directories:
-  - $HOME/Documents/repositories/
-
-configure_sudoers: true
-sudoers_custom_config: |
-  # Allow users in sudo group to use sudo with no password.
-  %sudo ALL=(ALL) NOPASSWD: ALL
-
-configure_dotfiles: true
-dotfiles_repo: https://github.com/AlexNabokikh/dotfiles
-dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Documents/repositories/dotfiles
-dotfiles_files:
-  - .gitconfig
-  - .p10k.zsh
-  - .tmux.conf
-  - .vimrc
-  - .zshrc
-
-install_fonts: true
-installed_nerdfonts:
-  - Meslo
-
-apt_packages:
-  - fzf
-
-install_snap: true
-snap_packages:
-  - name: nvim
-
-install_flatpak: true
-flatpak_packages:
-  - name: app/org.mozilla.firefox/x86_64/stable
-
-install_homebrew: true
-homebrew_packages:
-  - name: tfenv
-
-pip_packages:
-  - name: pip
-    state: latest
-
-npm_packages:
-  - name: neovim
-    state: latest
-
-configure_zsh: true
-# Plugin names have to be in the format github_user/plugin_name
-zsh_plugins:
-  - zsh-users/zsh-syntax-highlighting
-  - zsh-users/zsh-history-substring-search
-
-# Theme names have to be in the format github_user/theme_name
-zsh_themes:
-  - romkatv/powerlevel10k
-
-configure_tmux: true
-tmux_dir: $HOME/.tmux
-```
+You can override any of the defaults configured in `example.config.yml` by creating a `config.yml` file and setting the overrides in that file.
 
 ## Author
 
