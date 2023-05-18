@@ -17,18 +17,6 @@ dotfiles_repo_local_destination: ~/Documents/repositories/dotfiles
 dotfiles_files:
   - .gitconfig
 
-configure_gnome: true
-gtk_version: 3.0
-gnome_user: "{{ lookup('env', 'USER') }}"
-gnome_extensions:
-  - id: 3843
-    enable: true
-
-gnome_gsettings:
-  - schema: org.gnome.desktop.peripherals.mouse
-    key: accel-profile
-    value: "flat"
-
 install_fonts: true
 installed_nerdfonts:
   - Meslo
