@@ -32,7 +32,7 @@ This playbook helps to configure Ubuntu or any other Debian-based distro machine
   - **sudoers**
     - Apply custom user sudoers config.
   - **fonts**
-    - Download and install Nerd Fonts.
+    - Download and install [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
   - **ZSH**
     - Install and configure **ZSH** and **Oh-My-ZSH**
     - Install custom **OMZ** plugins and themes.
