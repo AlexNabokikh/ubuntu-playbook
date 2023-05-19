@@ -93,3 +93,7 @@ pip_packages:
 npm_packages:
   - name: neovim
     state: latest
+
+# Execute dotfiles script
+execute_script: false
+user_script: ~/.install.sh

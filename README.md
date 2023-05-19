@@ -40,6 +40,8 @@ This playbook helps to configure Ubuntu machine(s) for daily usage or software d
     - Install and configure **TMUX** and **TPM** (Plugin manager)
   - **GNOME**
     - Customizes the GNOME desktop ([Role](https://github.com/PeterMosmans/ansible-role-customize-gnome/))
+  - **User Script**
+    - Execute arbitrary user script.
 
 ## Installation
 
