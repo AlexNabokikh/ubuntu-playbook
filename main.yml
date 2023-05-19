@@ -33,8 +33,8 @@
 
     - name: Include extra-packages task configuration.
       ansible.builtin.import_tasks:
-        file: tasks/extra-packages.yml
-      tags: ["extra-packages"]
+        file: tasks/extra_packages.yml
+      tags: ["extra_packages"]
 
     - name: Include flatpak packages task configuration.
       ansible.builtin.import_tasks:
