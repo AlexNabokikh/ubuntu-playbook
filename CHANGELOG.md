@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.1](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.0...v2.3.1) (2023-05-19)
+
+
+### Bug Fixes
+
+* **extra_packages:** renamed task to confirm naming convetion ([5980d2a](https://github.com/AlexNabokikh/ubuntu-playbook/commit/5980d2a48d001db47d090f4c5c07b7a50a80deb7))
+
 ## [2.3.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.2.0...v2.3.0) (2023-05-19)
 
 
