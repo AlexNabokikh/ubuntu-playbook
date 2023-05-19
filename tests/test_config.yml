@@ -57,4 +57,4 @@ configure_tmux: true
 tmux_dir: $HOME/.tmux
 
 execute_script: true
-user_script: .install.sh
+user_script: ~/.install.sh
