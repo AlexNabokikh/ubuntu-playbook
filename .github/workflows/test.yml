@@ -49,7 +49,7 @@ jobs:
           cp tests/ansible.cfg ./ansible.cfg
           cp tests/inventory ./inventory
           cp tests/test_config.yml ./config.yml
-          cp test/.install.sh ./.install.sh
+          cp tests/.install.sh ./.install.sh
           ansible-galaxy install -r requirements.yml
 
       - name: Test the playbook's syntax
