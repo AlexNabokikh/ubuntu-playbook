@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.2.0...v2.3.0) (2023-05-19)
+
+
+### Features
+
+* added the ability to run arbitrary scripts ([#17](https://github.com/AlexNabokikh/ubuntu-playbook/issues/17)) ([f04ca07](https://github.com/AlexNabokikh/ubuntu-playbook/commit/f04ca07310a84e677dd1230783aa0c79a4d1de30))
+
 ## [2.2.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.1.0...v2.2.0) (2023-05-18)
 
 
