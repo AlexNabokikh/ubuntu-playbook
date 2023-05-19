@@ -1,0 +1,4 @@
+---
+- name: Execute arbitrary user script.
+  ansible.builtin.command: "{{ user_script }}"
+  changed_when: false

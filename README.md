@@ -6,7 +6,7 @@
 ![badge-gh-release]
 ![badge-license]
 
-This playbook helps to configure Ubuntu machine(s) for daily usage or software development quickly.
+This playbook helps to configure Ubuntu or any other Debian-based distro machine(s) for daily usage or software development quickly.
 
 ## Contents
 
@@ -26,13 +26,13 @@ This playbook helps to configure Ubuntu machine(s) for daily usage or software d
   - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory. ([Role](https://github.com/geerlingguy/ansible-role-dotfiles))
 - **System Settings**
   - **hostname**
-    - Create a user-defined hostname.
+    - Set a user-defined hostname.
   - **directories**
     - Create custom user directories.
   - **sudoers**
     - Apply custom user sudoers config.
   - **fonts**
-    - Download and install Nerd Fonts.
+    - Download and install [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts).
   - **ZSH**
     - Install and configure **ZSH** and **Oh-My-ZSH**
     - Install custom **OMZ** plugins and themes.
@@ -40,6 +40,8 @@ This playbook helps to configure Ubuntu machine(s) for daily usage or software d
     - Install and configure **TMUX** and **TPM** (Plugin manager)
   - **GNOME**
     - Customizes the GNOME desktop ([Role](https://github.com/PeterMosmans/ansible-role-customize-gnome/))
+  - **User Script**
+    - Execute arbitrary user script.
 
 ## Installation
 

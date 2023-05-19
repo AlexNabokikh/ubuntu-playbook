@@ -82,3 +82,9 @@
         file: tasks/zsh.yml
       when: configure_zsh
       tags: ["zsh"]
+
+    - name: Include user script task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/user_script.yml
+      when: execute_script
+      tags: ["script"]
