@@ -6,7 +6,7 @@
 ![badge-gh-release]
 ![badge-license]
 
-This playbook helps to configure Ubuntu machine(s) for daily usage or software development quickly.
+This playbook helps to configure Ubuntu or any other Debian-based distro machine(s) for daily usage or software development quickly.
 
 ## Contents
 
