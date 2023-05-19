@@ -26,7 +26,7 @@ This playbook helps to configure Ubuntu or any other Debian-based distro machine
   - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory. ([Role](https://github.com/geerlingguy/ansible-role-dotfiles))
 - **System Settings**
   - **hostname**
-    - Create a user-defined hostname.
+    - Set a user-defined hostname.
   - **directories**
     - Create custom user directories.
   - **sudoers**
