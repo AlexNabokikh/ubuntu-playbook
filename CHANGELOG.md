@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.2](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.1...v2.3.2) (2023-05-21)
+
+
+### Bug Fixes
+
+* extra_packages installation ([fe73237](https://github.com/AlexNabokikh/ubuntu-playbook/commit/fe73237f8b6e0af645f48fea75db2605ec669f00))
+
 ## [2.3.1](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.0...v2.3.1) (2023-05-19)
 
 
