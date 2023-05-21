@@ -31,11 +31,6 @@
         file: tasks/directories.yml
       tags: ["dirs"]
 
-    - name: Include extra-packages task configuration.
-      ansible.builtin.import_tasks:
-        file: tasks/extra_packages.yml
-      tags: ["extra_packages"]
-
     - name: Include flatpak packages task configuration.
       ansible.builtin.import_tasks:
         file: tasks/flatpak.yml
@@ -64,6 +59,11 @@
         file: tasks/snap.yml
       tags: ["snap"]
       when: install_snap
+
+    - name: Include extra-packages task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/extra_packages.yml
+      tags: ["extra_packages"]
 
     - name: Include sudoers task configuration.
       ansible.builtin.import_tasks:
