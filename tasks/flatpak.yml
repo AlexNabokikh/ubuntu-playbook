@@ -7,7 +7,7 @@
 
 - name: Ensure flatpak remotes are installed.
   community.general.flatpak_remote:
-    name: unfiltered-flathub
+    name: flathub
     state: present
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
     method: user
