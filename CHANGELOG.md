@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.3.3](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.2...v2.3.3) (2023-05-24)
+
+
+### Bug Fixes
+
+* **flatpak:** renamed the main repo to flathub ([0670b75](https://github.com/AlexNabokikh/ubuntu-playbook/commit/0670b7522236957da24fd4212e0d76368a43fc1b))
+
 ## [2.3.2](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.1...v2.3.2) (2023-05-21)
 
 
