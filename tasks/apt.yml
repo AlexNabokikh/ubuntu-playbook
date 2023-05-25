@@ -3,6 +3,8 @@
   become: true
   ansible.builtin.apt_repository:
     repo: "{{ item }}"
+    state: present
+    update_cache: true
   loop: "{{ apt_repositories }}"
   when:
     - apt_repositories is defined
