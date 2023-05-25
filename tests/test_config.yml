@@ -23,7 +23,10 @@ installed_nerdfonts:
 
 configure_gnome: false
 
+apt_repositories:
+  - ppa:aslatter/ppa
 apt_packages:
+  - alacritty
   - fzf
 
 install_snap: true

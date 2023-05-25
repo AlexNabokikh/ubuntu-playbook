@@ -66,7 +66,10 @@ configure_tmux: true
 tmux_dir: $HOME/.tmux
 
 # Application packages
+apt_repositories:
+  - ppa:aslatter/ppa
 apt_packages:
+  - alacritty
   - fzf
 
 # Install snap and and listed packages
