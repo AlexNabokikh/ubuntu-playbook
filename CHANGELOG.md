@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.4.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.3...v2.4.0) (2023-05-25)
+
+
+### Features
+
+* **apt:** added the ability to add ppa and deb repositories ([57d865a](https://github.com/AlexNabokikh/ubuntu-playbook/commit/57d865adb8fd61ee69a91661b4b5c619eefb2053))
+
 ## [2.3.3](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.2...v2.3.3) (2023-05-24)
 
 
