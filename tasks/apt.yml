@@ -1,4 +1,14 @@
 ---
+- name: Install apt repositories.
+  become: true
+  ansible.builtin.apt_repository:
+    repo: "{{ item }}"
+  loop: "{{ apt_repositories }}"
+  when:
+    - apt_repositories is defined
+    - apt_repositories is iterable
+    - apt_repositories | length > 0
+
 - name: Install apt packages.
   become: true
   ansible.builtin.apt:
