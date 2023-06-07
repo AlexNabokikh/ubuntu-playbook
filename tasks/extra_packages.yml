@@ -17,6 +17,8 @@
     state: "{{ item.state | default('present') }}"
     version: "{{ item.version | default(omit) }}"
     executable: "{{ item.executable | default('pip3') }}"
+    extra_args: "{{ item.extra_args | default(omit) }}"
+
   loop: "{{ pip_packages }}"
   loop_control:
     label: "{{ item.name }}"

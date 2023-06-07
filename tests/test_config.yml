@@ -44,6 +44,8 @@ homebrew_packages:
 pip_packages:
   - name: pip
     state: latest
+  - name: thefuzz
+    extra_args: --user
 
 npm_packages:
   - name: neovim
