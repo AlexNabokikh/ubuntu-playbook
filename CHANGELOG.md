@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.5.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.4.0...v2.5.0) (2023-06-27)
+
+
+### Features
+
+* **extra_packages:** allow to pass extra arguments to pip ([cac07c9](https://github.com/AlexNabokikh/ubuntu-playbook/commit/cac07c9b134a8b05d4f2cc4f8bf97fd89781eed9))
+
+
+### Bug Fixes
+
+* **extra_packages:** remove become as packages should never be installed under su ([b755293](https://github.com/AlexNabokikh/ubuntu-playbook/commit/b75529371998873be15b1121910e62d883ec47e3))
+
 ## [2.4.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.3.3...v2.4.0) (2023-05-25)
 
 
