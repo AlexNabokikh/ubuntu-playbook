@@ -21,7 +21,7 @@ This playbook helps to configure Ubuntu or any other Debian-based distro machine
 
 - **Software**
   - Add ppa or deb repositories.
-  - Install **APT, Snap, Flatpak or Homebrew** packages.
+  - Install **Native to the distro packages, Snaps, Flatpaks or Homebrew** packages.
   - Install extra **PIP** or **NPM** packages.
 - **Dotfiles**
   - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory. ([Role](https://github.com/geerlingguy/ansible-role-dotfiles))
@@ -57,10 +57,10 @@ This playbook helps to configure Ubuntu or any other Debian-based distro machine
 
 ### Running a specific set of tagged tasks
 
-You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `apt`, `dotfiles`, `dirs`, `sudoers`, `fonts`, `homebrew`, `hostname` etc..
+You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `packages`, `dotfiles`, `dirs`, `sudoers`, `fonts`, `homebrew`, `hostname` etc..
 
 ```sh
-ansible-playbook main.yml -K --tags "dotfiles, apt"
+ansible-playbook main.yml -K --tags "dotfiles, packages"
 ```
 
 ## Overriding Defaults
