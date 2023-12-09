@@ -20,7 +20,6 @@ This playbook helps to configure Ubuntu or any other Debian-based distro machine
 > **NOTE:** The Playbook is fully configurable. You can skip or reconfigure any task by [Overriding Defaults](#overriding-defaults).
 
 - **Software**
-  - Add ppa or deb repositories.
   - Install **Native to the distro packages, Snaps, Flatpaks or Homebrew** packages.
   - Install extra **PIP** or **NPM** packages.
 - **Dotfiles**
