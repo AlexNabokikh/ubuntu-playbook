@@ -68,7 +68,7 @@ tmux_dir: $HOME/.tmux
 # Application packages
 apt_repositories:
   - ppa:aslatter/ppa
-apt_packages:
+packages:
   - alacritty
   - fzf
 

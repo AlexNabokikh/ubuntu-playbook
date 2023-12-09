@@ -1,0 +1,9 @@
+---
+- name: Install packages using generic package module.
+  become: true
+  ansible.builtin.package:
+    name: "{{ item.name | default(item) }}"
+    state: latest
+  loop: "{{ packages }}"
+  register: install_result
+  when: packages is defined

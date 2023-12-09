@@ -1,7 +1,7 @@
 ---
 - name: Ensure Snapd installed.
   become: true
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: snapd
     state: latest
 
