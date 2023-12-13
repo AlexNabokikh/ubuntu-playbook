@@ -75,22 +75,22 @@ apt_packages:
 # Install NIX and and listed packages
 install_nix: true
 nix_packages:
-  - name: cowsay
+  - cowsay
 
 # Install snap and and listed packages
 install_snap: true
 snap_packages:
-  - name: nvim
+  - nvim
 
 # Install flatpak and listed packages
 install_flatpak: true
 flatpak_packages:
-  - name: app/org.mozilla.firefox/x86_64/stable
+  - app/org.mozilla.firefox/x86_64/stable
 
 # Install homebrew and listed packages
 install_homebrew: true
 homebrew_packages:
-  - name: tfenv
+  - tfenv
 
 # Install PIP packages
 pip_packages:
