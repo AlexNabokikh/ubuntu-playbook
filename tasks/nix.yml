@@ -78,13 +78,13 @@
     - name: Download Nix installer script
       ansible.builtin.get_url:
         url: "https://nixos.org/nix/install"
-        dest: "{{ nix_script_dir }}/install_nix.sh"
+        dest: "/tmp/install_nix.sh"
         mode: "0755"
 
     - name: Run Nix installer script
       become: true
       become_user: "{{ username }}"
-      ansible.builtin.command: "{{ nix_script_dir }}/install_nix.sh"
+      ansible.builtin.command: "/tmp/install_nix.sh"
       args:
         creates: "/nix/store"
 
