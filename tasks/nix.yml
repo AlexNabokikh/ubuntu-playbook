@@ -2,7 +2,7 @@
 - name: Ensure Nix user exists
   become: true
   ansible.builtin.user:
-    name: "{{ nix_user }}"
+    name: "{{ username }}"
     state: present
   register: nix_user_details
 
@@ -13,7 +13,7 @@
 - name: Set fact for XDG user config dir
   ansible.builtin.shell: echo $XDG_CONFIG_HOME
   register: xdg_config_home_shell
-  when: nix_user == lookup('env', 'USER')
+  when: username == lookup('env', 'USER')
 
 - name: Set fact for XDG user config dir from shell output
   ansible.builtin.set_fact:
@@ -30,14 +30,14 @@
   ansible.builtin.file:
     path: "{{ xdg_user_config_dir }}/nix"
     state: directory
-    owner: "{{ nix_user }}"
+    owner: "{{ username }}"
     mode: "0755"
 
 - name: Ensure Nix directory exists
   become: true
   ansible.builtin.file:
     path: "/nix"
-    owner: "{{ nix_user }}"
+    owner: "{{ username }}"
     state: directory
     mode: "0755"
   register: nix_directory
@@ -58,7 +58,7 @@
       become: true
       ansible.builtin.file:
         path: "{{ nix_bind_mount }}"
-        owner: "{{ nix_user }}"
+        owner: "{{ username }}"
         state: directory
         mode: "0755"
       when: not nix_bind_mount_stat.stat.exists
@@ -83,14 +83,14 @@
 
     - name: Run Nix installer script
       become: true
-      become_user: "{{ nix_user }}"
+      become_user: "{{ username }}"
       ansible.builtin.command: "{{ nix_script_dir }}/install_nix.sh"
       args:
         creates: "/nix/store"
 
 - name: Install Nix packages
   become: true
-  become_user: "{{ nix_user }}"
+  become_user: "{{ username }}"
   ansible.builtin.command:
     cmd: "nix-env -iA nixpkgs.{{ item }}"
   loop: "{{ nix_packages }}"
