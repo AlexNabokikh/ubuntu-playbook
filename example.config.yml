@@ -72,6 +72,11 @@ apt_packages:
   - alacritty
   - fzf
 
+# Install NIX and and listed packages
+install_nix: true
+nix_packages:
+  - name: cowsay
+
 # Install snap and and listed packages
 install_snap: true
 snap_packages:

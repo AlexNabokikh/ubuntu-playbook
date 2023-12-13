@@ -21,7 +21,7 @@ This playbook helps to configure Ubuntu or any other Debian-based distro machine
 
 - **Software**
   - Add ppa or deb repositories.
-  - Install **APT, Snap, Flatpak or Homebrew** packages.
+  - Install **APT, Snap, Flatpak, Nix or Homebrew** packages.
   - Install extra **PIP** or **NPM** packages.
 - **Dotfiles**
   - Clone a set of **dotfiles** from a given Git repo and link them to the users' home directory. ([Role](https://github.com/geerlingguy/ansible-role-dotfiles))
