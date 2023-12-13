@@ -89,7 +89,7 @@
         creates: "/nix/store"
 
     - name: Source the nix.sh script
-      shell: |
+      ansible.builtin.shell: |
         . "/home/{{ username }}/.nix-profile/etc/profile.d/nix.sh"
       args:
         executable: /bin/bash

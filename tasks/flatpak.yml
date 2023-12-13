@@ -15,7 +15,7 @@
 - name: Install flatpak packages.
   become: "{{ 'true' if item.method is defined and item.method == 'system' else 'false' }}"
   community.general.flatpak:
-    name: "{{ item.name }}"
+    name: "{{ item.name | default(item) }}"
     state: "{{ item.state | default('present') }}"
     method: "{{ item.method | default('user') }}"
     remote: "{{ item.remote | default('flathub') }}"
