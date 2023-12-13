@@ -6,10 +6,19 @@
     state: present
   register: nix_user_details
 
-- name: Set fact for XDG user config dir
+- name: Initialize XDG user config dir variable
   ansible.builtin.set_fact:
-    xdg_user_config_dir: "{{ lookup('env', 'XDG_CONFIG_HOME') }}"
+    xdg_user_config_dir: ""
+
+- name: Set fact for XDG user config dir
+  ansible.builtin.shell: echo $XDG_CONFIG_HOME
+  register: xdg_config_home_shell
   when: nix_user == lookup('env', 'USER')
+
+- name: Set fact for XDG user config dir from shell output
+  ansible.builtin.set_fact:
+    xdg_user_config_dir: "{{ xdg_config_home_shell.stdout }}"
+  when: xdg_config_home_shell.stdout != ""
 
 - name: Use fallback default for XDG user config dir
   ansible.builtin.set_fact:
@@ -23,7 +32,6 @@
     state: directory
     owner: "{{ nix_user }}"
     mode: "0755"
-  register: nix_config_dir
 
 - name: Ensure Nix directory exists
   become: true
@@ -34,22 +42,19 @@
     mode: "0755"
   register: nix_directory
 
-- name: Set should_install_nix fact  # noqa: no-handler
+- name: Set should_install_nix fact based on Nix directory status
   ansible.builtin.set_fact:
-    should_install_nix: true
-  when: >
-    nix_directory is changed
+    should_install_nix: "{{ nix_directory.changed }}"
 
 - name: Create /nix bind mount
-  when:
-    - nix_bind_mount != ""
+  when: nix_bind_mount | default("") != ""
   block:
     - name: Check if bind mount target directory is present
       ansible.builtin.stat:
         path: "{{ nix_bind_mount }}"
       register: nix_bind_mount_stat
 
-    - name: Create bind mount target directory  # noqa: no-handler
+    - name: Create bind mount target directory if not exists
       become: true
       ansible.builtin.file:
         path: "{{ nix_bind_mount }}"
@@ -58,33 +63,34 @@
         mode: "0755"
       when: not nix_bind_mount_stat.stat.exists
 
-    - name: "Bind mount /nix to {{ nix_bind_mount }}"
+    - name: Bind mount /nix to target directory
       become: true
-      ansible.posix.mount:
+      ansible.builtin.mount:
         path: "{{ nix_bind_mount }}"
         src: "/nix"
         opts: bind
         state: mounted
         fstype: none
 
-- name: Install Nix
-  when: should_install_nix  # noqa no-handler
+- name: Install Nix if needed
+  when: should_install_nix
   block:
-    - name: Download installer script
+    - name: Download Nix installer script
       ansible.builtin.get_url:
         url: "https://nixos.org/nix/install"
         dest: "{{ nix_script_dir }}/install_nix.sh"
         mode: "0755"
 
-    - name: Run installer script
+    - name: Run Nix installer script
       become: true
       become_user: "{{ nix_user }}"
       ansible.builtin.command: "{{ nix_script_dir }}/install_nix.sh"
-      changed_when: true
+      args:
+        creates: "/nix/store"
 
 - name: Install Nix packages
   become: true
-  become_user: "{{ username }}"
+  become_user: "{{ nix_user }}"
   ansible.builtin.command:
     cmd: "nix-env -iA nixpkgs.{{ item }}"
   loop: "{{ nix_packages }}"
