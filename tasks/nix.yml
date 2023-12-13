@@ -65,7 +65,7 @@
 
     - name: Bind mount /nix to target directory
       become: true
-      ansible.builtin.mount:
+      ansible.posix.mount:
         path: "{{ nix_bind_mount }}"
         src: "/nix"
         opts: bind

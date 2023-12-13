@@ -4,4 +4,5 @@ roles:
   - name: petermosmans.customize-gnome
 
 collections:
+  - name: ansible.posix
   - name: community.general
