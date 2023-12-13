@@ -29,6 +29,10 @@ apt_packages:
   - alacritty
   - fzf
 
+install_nix: true
+nix_packages:
+  - neovim
+
 install_snap: true
 snap_packages:
   - name: hello-world
