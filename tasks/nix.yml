@@ -92,5 +92,5 @@
   become: true
   become_user: "{{ username }}"
   ansible.builtin.command:
-    cmd: "nix-env -iA nixpkgs.{{ item }}"
+    cmd: "/home/{{ nix_user }}/.nix-profile/bin/nix-env -iA nixpkgs.{{ item }}"
   loop: "{{ nix_packages }}"
