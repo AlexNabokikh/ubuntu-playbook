@@ -88,6 +88,12 @@
       args:
         creates: "/nix/store"
 
+    - name: Source the nix.sh script
+      shell: |
+        . "/home/{{ username }}/.nix-profile/etc/profile.d/nix.sh"
+      args:
+        executable: /bin/bash
+
 - name: Install Nix packages
   become: true
   become_user: "{{ username }}"
