@@ -54,6 +54,12 @@
         file: tasks/hostname.yml
       tags: ["hostname"]
 
+    - name: Include nix packages task configuration.
+      ansible.builtin.import_tasks:
+        file: tasks/nix.yml
+      tags: ["nix"]
+      when: install_nix
+
     - name: Include snap packages task configuration.
       ansible.builtin.import_tasks:
         file: tasks/snap.yml
