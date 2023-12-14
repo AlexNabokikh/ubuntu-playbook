@@ -1,5 +1,5 @@
 ---
-- name: Install apt packages.
+- name: Install packages using system's package-manager.
   become: true
   ansible.builtin.package:
     name: "{{ item.name | default(item) }}"

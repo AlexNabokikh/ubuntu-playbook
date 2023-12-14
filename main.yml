@@ -21,10 +21,10 @@
       tags: ["gnome"]
 
   tasks:
-    - name: Include apt packages task configuration.
+    - name: Include native packages task configuration.
       ansible.builtin.import_tasks:
-        file: tasks/apt.yml
-      tags: ["apt"]
+        file: tasks/packages.yml
+      tags: ["packages"]
 
     - name: Include directories task configuration.
       ansible.builtin.import_tasks:
