@@ -97,6 +97,8 @@
 - name: Install Nix packages
   become: true
   become_user: "{{ username }}"
+  environment:
+    NIXPKGS_ALLOW_UNFREE: "1"
   ansible.builtin.command:
     cmd: "/home/{{ username }}/.nix-profile/bin/nix-env -iA nixpkgs.{{ item }}"
   loop: "{{ nix_packages }}"
