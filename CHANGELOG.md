@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.6.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.5.0...v2.6.0) (2023-12-14)
+
+
+### Features
+
+* **nix:** added nix packages installation task ([#24](https://github.com/AlexNabokikh/ubuntu-playbook/issues/24)) ([b0bdaf9](https://github.com/AlexNabokikh/ubuntu-playbook/commit/b0bdaf91f7ffe9742793b27874de2bf39522a17a))
+
 ## [2.5.0](https://github.com/AlexNabokikh/ubuntu-playbook/compare/v2.4.0...v2.5.0) (2023-06-27)
 
 
