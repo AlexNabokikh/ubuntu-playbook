@@ -1,7 +1,7 @@
 ---
 - name: Ensure tmux installed.
   become: true
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: tmux
     state: latest
 

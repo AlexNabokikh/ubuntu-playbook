@@ -66,10 +66,7 @@ configure_tmux: true
 tmux_dir: $HOME/.tmux
 
 # Application packages
-apt_repositories:
-  - ppa:aslatter/ppa
-apt_packages:
-  - alacritty
+native_packages:
   - fzf
 
 # Install NIX and and listed packages

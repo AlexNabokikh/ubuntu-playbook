@@ -12,7 +12,7 @@
 
 - name: Install prereq packages.
   become: true
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: "{{ item }}"
     update_cache: true
     state: present

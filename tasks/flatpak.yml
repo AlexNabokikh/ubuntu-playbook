@@ -1,7 +1,7 @@
 ---
 - name: Ensure flatpak installed.
   become: true
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: flatpak
     state: latest
 
